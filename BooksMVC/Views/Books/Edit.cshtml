@@ -1,0 +1,40 @@
+﻿@model BooksMVC.Models.ViewModels.NewBook
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Edit", "Books", FormMethod.Post))
+{
+    <div class="row" style="padding-left:15px">
+        <h2> EDIT BOOK </h2>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            @Html.HiddenFor(d => d.Id)
+            <div>
+                @Html.LabelFor(d => d.Nombre)
+                @Html.TextBoxFor(d => d.Nombre, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Nombre, null, new { @class = "red" })
+            </div>
+            <br />
+            <div>
+                @Html.LabelFor(d => d.Autor)
+                @Html.TextBoxFor(d => d.Autor, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Autor, null, new { @class = "red" })
+            </div>
+            <br />
+            <div>
+                @Html.LabelFor(d => d.FechaCreacion)<br />
+                @Html.EditorFor(d => d.FechaCreacion, "", new { @class = "form -control" })
+                @Html.ValidationMessageFor(d => d.FechaCreacion, null, new { @class = "red" })
+            </div>
+
+            <div style="padding-top: 10px">
+                <input value="Save" class="btn btn-primary" type="submit" />
+            </div>
+        </div>
+    </div>
+}
+
