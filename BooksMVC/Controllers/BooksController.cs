@@ -65,6 +65,7 @@ namespace BooksMVC.Controllers
             }
         }
         
+        [HttpPost]
         public ActionResult Edit(int Id)
         {
             NewBook newBook = new NewBook();
